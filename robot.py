@@ -39,8 +39,8 @@ class Robot:
 
     def draw(self, screen):
 
-        for point in self.trail:
-            pygame.draw.circle(screen, config.TRAIL_COL, point, 3)
+        #for point in self.trail:
+            #pygame.draw.circle(screen, config.TRAIL_COL, point, 3)
 
             
         cos_h = math.cos(self.heading)

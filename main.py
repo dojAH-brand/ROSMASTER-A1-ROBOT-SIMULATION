@@ -4,7 +4,7 @@ import sys
 from world import World
 from robot import Robot
 from input_handler import InputHandler
-
+from sensor import Lidar, DepthCamera
 
 pygame.init()
 screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
@@ -15,6 +15,8 @@ clock = pygame.time.Clock()
 world = World()
 robot = Robot(400, 300)
 input_handler = InputHandler()
+lidar = Lidar()
+depthcamera = DepthCamera()
 
 pygame.font.init()
 font = pygame.font.SysFont("consolas", 18)
@@ -43,10 +45,13 @@ while running:
         robot.x = pre_x
         robot.y = pre_y
         robot.speed = 0
-
-        
+    
+    lidar.update(robot.x, robot.y, robot.heading, world.screen_walls)    
     world.draw(screen)
     robot.draw(screen)
+    lidar.draw(screen, robot.x, robot.y, robot.heading)
+    depthcamera.update(robot.x, robot.y, robot.heading, world.screen_walls)
+    depthcamera.draw(screen, robot.x, robot.y, robot.heading)
  
     pos_text = font.render(f"X {robot.x:.0f}  Y: {robot.y:.0f}", True, config.HUD_COL) 
     speed_text = font.render(f"Speed {robot.speed:.1f}",True, config.HUD_COL)
