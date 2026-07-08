@@ -7,7 +7,7 @@ dimensions were extracted directly from the official ROSMASTER A1 URDF file
 This is Phase 3 of a longer journey toward building a full ROS 2 simulation 
 with LiDAR, SLAM and autonomous navigation.
 
-![ROSMASTER A1 3D](images/robot_3d.png)
+![ROSMASTER A1 3D](images/Screenshot%20from%202026-07-04%2015-17-22.png)
 
 ## Features
 
@@ -70,6 +70,8 @@ with LiDAR, SLAM and autonomous navigation.
   connected to the 3D rendering — this comes in Phase 4 with ROS 2
 
 ## File Structure
+
+```
 phase3/
 ├── config.py          # all constants from URDF — dimensions, colours
 ├── main.py            # Panda3D application, game loop, lighting, camera
@@ -80,6 +82,7 @@ phase3/
 ├── requirements.txt   # panda3d
 ├── images/            # screenshots
 └── videos/            # demo recordings
+```
 
 ## Roadmap
 
@@ -88,4 +91,3 @@ phase3/
 - [x] Phase 3 — 3D world rendering with Panda3D
 - [ ] Phase 4 — ROS 2 integration
 - [ ] Phase 5 — SLAM + autonomous navigation
-
